@@ -1,0 +1,95 @@
+ien sûr ! Voici l'index du code que vous avez fourni, suivi de chaque étape expliquée en détail :
+
+1. Inclusion des fichiers nécessaires
+2. Définition de la fonction `initialize_dinning_table`
+3. Définition de la fonction `print_logs`
+4. Définition de la fonction `routine`
+5. Définition de la fonction `init_data`
+6. Définition de la fonction `set_philo`
+7. Fonction principale `main`
+8. Définition de la fonction `get_time`
+9. Définition de la fonction `last_meal`
+10. Définition de la fonction `ft_atoi`
+11. Définition de la fonction `ft_strlen`
+12. Définition de la fonction `count_size`
+13. Définition de la fonction `ft_itoa`
+
+Maintenant, passons en revue chaque étape du code :
+
+1. Inclusion des fichiers nécessaires : Cette partie du code inclut le fichier d'en-tête "philo.h",
+qui est probablement utilisé pour déclarer les structures et les prototypes de fonctions nécessaires
+ dans le reste du code.
+
+2. Fonction `initialize_dinning_table` : Cette fonction initialise la table à manger en vérifiant
+continuellement l'état des philosophes.
+Elle utilise une boucle infinie pour surveiller chaque philosophe et
+effectue les actions appropriées en fonction de l'état actuel.
+Si un philosophe a atteint le nombre de repas requis, la fonction renvoie 1.
+Si un philosophe dépasse le temps imparti pour manger,
+la fonction affiche un message et renvoie également 1.
+Sinon, la fonction continue à surveiller les philosophes.
+Elle utilise des fonctions auxiliaires telles que `last_meal` et `get_time` pour effectuer
+les vérifications nécessaires.
+
+3. Fonction `print_logs` : Cette fonction est utilisée pour afficher des messages de journalisation
+ sur les activités d'un philosophe. Elle prend en paramètres un pointeur vers une structure `t_philo`
+ et une chaîne de caractères représentant le message à afficher. La fonction utilise des mutex pour
+ assurer une sortie cohérente des messages de journalisation en les verrouillant avant l'affichage et
+ en les déverrouillant ensuite.
+
+4. Fonction `routine` : Cette fonction représente le comportement principal d'un philosophe.
+Elle est exécutée en tant que thread pour chaque philosophe. La fonction utilise des mutex pour gérer
+ l'accès aux fourchettes et affiche des messages de journalisation pour chaque action effectuée par le
+ philosophe (prise d'une fourchette, manger, dormir, penser). Elle utilise également des fonctions
+ auxiliaires pour mesurer le temps écoulé et mettre à jour les informations du philosophe.
+
+5. Fonction `init_data` : Cette fonction initialise les données nécessaires pour la simulation des
+philosophes. Elle prend en paramètres un tableau de chaînes de caractères (`ar`), une structure `t_data`
+(`datas`) et le nombre d'arguments de ligne de commande (`argc`). La fonction utilise `ft_atoi` pour
+convertir les arguments en entiers et les assigne aux membres appropriés de la structure `datas`.
+Elle effectue également des vérifications pour s'assurer que les valeurs sont valides.
+Enfin, elle enregistre le temps de début de la simulation en utilisant `gettimeofday`.
+
+6. Fonction `set_philo` : Cette fonction configure les philosophes pour la simulation.
+ Elle prend en paramètres une structure `t_data` (`datas`), un tableau de structures `t_philo`
+ (`philos`) et un tableau de mutex (`fork`). La fonction initialise les mutex pour chaque fourchette
+  et configure les membres des structures `t_philo` en leur assignant les valeurs appropriées.
+  Elle crée également des threads pour chaque philosophe, en utilisant la fonction `routine` comme
+  fonction de démarrage. La fonction utilise des fonctions auxiliaires pour mesurer le temps écoulé
+  et effectue une petite pause entre chaque création de thread.
+
+7. Fonction principale `main` : La fonction `main` est l'entrée du programme.
+ Elle commence par vérifier le nombre d'arguments de ligne de commande et appelle la fonction `check_argv`
+  pour effectuer des vérifications supplémentaires sur les arguments.
+   Ensuite, elle initialise les données nécessaires en appelant la fonction `init_data`.
+   Elle alloue également de la mémoire pour les tableaux de structures `t_philo` et de mutex.
+   Ensuite, elle appelle la fonction `set_philo` pour configurer les philosophes et lance la simulation
+    en appelant la fonction `initialize_dinning_table`.
+
+8. Fonction `get_time` : Cette fonction retourne le temps écoulé depuis le début de la simulation
+en millisecondes. Elle utilise la fonction `gettimeofday` pour obtenir le temps actuel et effectue
+des calculs en soustrayant le temps de début en millisecondes.
+
+9. Fonction `last_meal` : Cette fonction calcule le temps écoulé depuis le dernier repas d'un philosophe.
+ Elle utilise la fonction `get_time` pour obtenir le temps actuel et le soustrait au temps du dernier
+  repas pour obtenir la durée écoulée.
+
+10. Fonction `ft_atoi` : Cette fonction convertit une chaîne de caractères en un entier.
+Elle prend en paramètre une chaîne de caractères (`str`) et parcourt les caractères un par un pour calculer
+ la valeur entière correspondante. La fonction gère également les nombres négatifs et effectue des
+ vérifications pour s'assurer que la valeur entière renvoyée est valide.
+
+11. Fonction `ft_strlen` : Cette fonction calcule la longueur d'une chaîne de caractères.
+Elle prend en paramètre une chaîne de caractères (`str`) et compte le nombre de caractères jusqu'au
+caractère nul '\0'.
+
+12. Fonction `count_size` : Cette fonction calcule la taille d'un entier en nombre de chiffres.
+Elle prend en paramètre un entier (`n`) et utilise une boucle pour diviser l'entier par 10 jusqu'à ce
+qu'il devienne zéro, en comptant chaque chiffre. La valeur renvoyée correspond au nombre de chiffres
+de l'entier.
+
+13. Fonction `ft_itoa` : Cette fonction convertit un entier en une chaîne de caractères.
+Elle prend en paramètre un entier (`n`) et utilise les fonctions auxiliaires `count_size` et `malloc`
+pour allouer la mémoire nécessaire à la chaîne de caractères. La fonction gère également les nombres
+négatifs en ajoutant un signe '-' approprié. Elle convertit chaque chiffre de l'entier en caractère et
+les stocke dans la chaîne de caractères résultante, puis renvoie cette chaîne.
