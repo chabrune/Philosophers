@@ -1,5 +1,3 @@
-ien sûr ! Voici l'index du code que vous avez fourni, suivi de chaque étape expliquée en détail :
-
 1. Inclusion des fichiers nécessaires
 2. Définition de la fonction `initialize_dinning_table`
 3. Définition de la fonction `print_logs`
