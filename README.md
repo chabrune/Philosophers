@@ -37,11 +37,6 @@ timestamp_in_ms X is thinking
 timestamp_in_ms X died
 ```
 
-## 🌟 Bonus
-- Version avec processus au lieu de threads
-- Utilisation de sémaphores au lieu de mutex
-- Fourchettes au centre de la table
-
 ## ⚠️ Contraintes
 - Message de mort < 10ms après décès
 - Gestion précise du temps
